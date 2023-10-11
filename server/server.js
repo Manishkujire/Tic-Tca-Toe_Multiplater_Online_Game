@@ -264,7 +264,7 @@ app.post('/join', async (req, res) => {
   try {
     const userId = v4();
     console.log('userId: ', userId);
-    // const token = serverClient.createToken(userId);
+    const token = serverClient.createToken(userId);
     // console.log('token: ', token);
     // res.json({ token, userId });
     res.json({
