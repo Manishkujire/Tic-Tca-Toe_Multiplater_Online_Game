@@ -268,8 +268,7 @@ app.post('/join', async (req, res) => {
     // console.log('token: ', token);
     // res.json({ token, userId });
     res.json({
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMGIyYTU5NzQtOTQ1OC00MzZhLTg4ZjAtNTJlMjIwODZlZmZiIn0.YnrMiNarrZdeROho6znevqPLN8dWd18-Mq-pK8j7ZgQ",
-      "userId": "0b2a5974-9458-436a-88f0-52e22086effb",
+      token,userId,
       api_key
     });
   } catch (error) {
