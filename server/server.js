@@ -38,7 +38,7 @@ setInterval( ()=>{
 
 deleteChannel()
 
-},60000)
+},240000)
 
 
 app.get("/deleteuser", async (req, res) => {
@@ -49,8 +49,6 @@ app.get("/deleteuser", async (req, res) => {
     let notonlinePlayers = users.filter((ele) => {
       return !ele.online
     })
-    console.log('notonlinePlayers: ', notonlinePlayers.length);
-    console.log('users: ', users.length);
     notonlinePlayers.splice(0, 5).map(async (ele) => {
       let id = ele.id.toString()
       console.log('id: ', id);
@@ -72,7 +70,24 @@ app.get("/deleteuser", async (req, res) => {
 
     console.log(err);
   }
+})
 
+app.post("/deleteuser", async (req, res) => {
+  try {
+    let {userId}=req.body
+    console.log(userId)
+    const responce = await serverClient.deleteUser(userId, {
+       delete_conversation_channels: true,
+       mark_messages_deleted: true,
+       hard_delete: true,
+    });
+     
+    res.send("done")
+  }
+  catch (err) {
+
+    console.log(err);
+  }
 })
 const deleteChannel= async()=>{
   try {
