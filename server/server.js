@@ -38,7 +38,7 @@ setInterval( ()=>{
 
 deleteChannel()
 
-},240000)
+},3600000)
 
 
 app.get("/deleteuser", async (req, res) => {
