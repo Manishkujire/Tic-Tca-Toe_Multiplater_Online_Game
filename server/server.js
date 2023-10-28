@@ -42,15 +42,13 @@ deleteChannel()
 },3600000)
 
 setInterval( ()=>{
-    axios.post("https://ti-vade.onrender.com/join")
+    axios.get("https://ti-vade.onrender.com/")
     console.log("trigger");
 },300000)
 
 
 app.get("/deleteuser", async (req, res) => {
   try {
-
-
     const { users } = await serverClient.queryUsers({ role: "user" });
     let notonlinePlayers = users.filter((ele) => {
       return !ele.online
