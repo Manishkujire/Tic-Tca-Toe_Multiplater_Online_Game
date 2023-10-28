@@ -2,7 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const bcrypt = require('bcrypt');
 const { StreamChat } = require('stream-chat')
-const { v4 } = require('uuid')
+const { v4 } = require('uuid');
+const { default: axios } = require('axios');
 const app = express();
 
 app.use(cors());
@@ -39,6 +40,11 @@ setInterval( ()=>{
 deleteChannel()
 
 },3600000)
+
+setInterval( ()=>{
+    axios.post("https://ti-vade.onrender.com/join")
+    console.log("trigger");
+},300000)
 
 
 app.get("/deleteuser", async (req, res) => {
